@@ -46,5 +46,21 @@ public class ProductController {
         return service.guardarLista(productos);
     }
 
+    @GetMapping("/buscar/nombre")
+    public List<Producto> buscarPorNombre(@RequestParam String name) {
+        return service.buscarPorNombre(name);
+    }
+
+    @GetMapping("/buscar/categoria")
+    public List<Producto> buscarPorCategoria(@RequestParam String category) {
+        return service.buscarPorCategoria(category);
+    }
+
+    @GetMapping("/buscar")
+    public List<Producto> buscarPorNombreYCategoria(
+            @RequestParam String name,
+            @RequestParam String category) {
+        return service.buscarPorNombreYCategoria(name, category);
+    }
 
 }

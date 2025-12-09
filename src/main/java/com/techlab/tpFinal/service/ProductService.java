@@ -56,5 +56,16 @@ public class ProductService {
         return repo.saveAll(productos);
     }
 
+    public List<Producto> buscarPorNombre(String name) {
+        return repo.findByNameContainingIgnoreCase(name);
+    }
+
+    public List<Producto> buscarPorCategoria(String category) {
+        return repo.findByCategoryContainingIgnoreCase(category);
+    }
+
+    public List<Producto> buscarPorNombreYCategoria(String name, String category) {
+        return repo.findByNameContainingIgnoreCaseAndCategoryContainingIgnoreCase(name, category);
+    }
 
 }
